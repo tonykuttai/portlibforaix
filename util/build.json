@@ -1,0 +1,34 @@
+{
+    "targets": [
+        {
+            "name": "libutil",
+            "type": "library",
+            "version": 2,
+            "objects": [
+                "getopt_long.o",
+                "pty.o",
+                "mkdtemp.o",
+                "backtrace.o",
+                "bsd-flock.o",
+                "asprintf.o",
+                "progname.o",
+                "err.o",
+                "isatty.o",
+                "fnmatch.o"
+            ]
+        }
+    ],
+    "install": {
+        "includes": [
+            "getopt.h",
+            "pty.h",
+            "execinfo.h",
+            ["wrapper/file.h", "sys/file.h"],
+            ["wrapper/stdio.h", "stdio.h"],
+            ["wrapper/unistd.h", "unistd.h"],
+            ["wrapper/stdlib.h", "stdlib.h"],
+            ["wrapper/fnmatch.h", "fnmatch.h"],
+            "err.h"
+        ]
+    }
+}
