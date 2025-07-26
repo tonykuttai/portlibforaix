@@ -1,8 +1,8 @@
-# Porting Library for IBM i
+# Porting Library for IBM AIX
 
 ## Summary
 
-Provides various functions for PASE which are not provided by the AIX runtime.
+Provides various functions which are not provided by the AIX runtime. This is forked from [portlibfori](https://github.com/IBM/portlibfori) and modified for AIX runtime.
 
 This makes porting applications easier. Currently provides the following libraries:
 
@@ -21,15 +21,6 @@ Contains various functions found in Linux, BSD, etc but not found on AIX:
 - libutil_getprogname
 - libutil_setprogname
 
-### libiperf
-
-IBM i performance statistics library, modeled after AIX's libperfstat.
-
-Currently only supports a quite limited selection of APIs:
-
-- iperfstat_memory_get_main_storage_size
-- iperfstat_cpu_get_number
-
 ## Building
 
 ```shell
@@ -40,7 +31,7 @@ Currently only supports a quite limited selection of APIs:
 The Makefile supports `PREFIX` and `DESTDIR` variables. The default prefix is `/usr/local`. To install to a different prefix specify it like so:
 
 ```shell
-    make PREFIX=/QOpenSys/my/prefix install
+    make PREFIX=/dir/my/prefix install
 ```
 
 ## License
