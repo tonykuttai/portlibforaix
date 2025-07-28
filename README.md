@@ -28,7 +28,7 @@ Contains various functions found in Linux, BSD, etc but not found on AIX:
     make install
 ```
 
-The Makefile supports `PREFIX` and `DESTDIR` variables. The default prefix is `/usr/local`. To install to a different prefix specify it like so:
+The Makefile supports `PREFIX` and `DESTDIR` variables. The default prefix is `$(HOME)/local/portlibforaix`. To install to a different prefix specify it like so:
 
 ```shell
     make PREFIX=/dir/my/prefix install
