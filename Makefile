@@ -11,17 +11,17 @@ all: build-all
 install: install-all
 
 util/libutil.o: util/getopt_long.o util/pty.o util/mkdtemp.o util/backtrace.o util/bsd-flock.o util/asprintf.o util/progname.o util/err.o util/isatty.o util/fnmatch.o
-        $(CC) -shared $(CFLAGS) $(LDFLAGS) -Wl,-bE:util/libutil.exp -o $@ $^
+	$(CC) -shared $(CFLAGS) $(LDFLAGS) -Wl,-bE:util/libutil.exp -o $@ $^
 
 util/%.o: util/%.c
 	$(CC) -c $(CFLAGS) -Iutil -o $@ $^
 
 util/libutil.imp: util/libutil.exp
-        ( \
-        echo '#! libutil.so.2(shr_64.o)'; \
-        echo "# 64"; \
-        cat util/libutil.exp; \
-        ) > util/libutil.imp
+	( \
+	echo '#! libutil.so.2(shr_64.o)'; \
+	echo "# 64"; \
+	cat util/libutil.exp; \
+	) > util/libutil.imp
 
 util/libutil.so.2: util/libutil.o util/libutil.imp
 	export OBJECT_MODE=32_64
